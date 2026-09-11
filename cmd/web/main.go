@@ -13,7 +13,7 @@ func main() {
 	Mux.HandleFunc("POST /snippet/create", snippetCreatePost)
 
 	log.Println("starting server on: 4000")
-	err := http.ListenAndServe(": 4000", Mux)
+	err := http.ListenAndServe("4000", Mux)
 	log.Println("This project was built by Zainab Yusuf")
 	log.Fatal(err)
 }
