@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 	"strconv"
 )
@@ -31,17 +30,4 @@ func snippetCreatePost(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusCreated)
 
 	w.Write([]byte("Save a new snippet..."))
-}
-
-func main() {
-	Mux := http.NewServeMux()
-	Mux.HandleFunc("GET /{$}", home)
-	Mux.HandleFunc("GET /snippet/view/{id}", snippetView)
-	Mux.HandleFunc("GET /snippet/create", snippetCreate)
-	Mux.HandleFunc("POST /snippet/create", snippetCreatePost)
-
-	log.Println("starting server on: 4000")
-	err := http.ListenAndServe(": 4000", Mux)
-	log.Println("This project was built by Zainab Yusuf")
-	log.Fatal(err)
 }
